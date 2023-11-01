@@ -1,0 +1,23 @@
+#!name = X-Search
+#!desc = 最后更新时间 2023/11/01 20:00 搜索增强工具
+#!openurl = 
+#!author = lbqmy2022
+#!homepage = 
+#!icon = 
+
+
+
+[Rewrite]
+#>>>>>>>>>>>Safari搜索强化
+# > 知乎搜索
+^https?://www.google.cn/search\?q=zh\+ https://www.zhihu.com/search?q= 302
+# > Twitter搜索
+^https?://www.google.cn/search\?q=twi\+ Twitter://search?query= 302
+# > 百度搜索
+^https?://www.google.c(n|om)/search\?q=bd\+ https://www.baidu.com/s?wd= 302
+# > 微博搜索
+^https?://www.google.cn/search\?q=wb\+ weibointernational://search?q= 302
+# > Bilibili搜索
+^https?://www.google.cn/search\?q=bili\+ bilibili://search?keyword= 302
+# > YouTube搜索
+^https?://www.google.cn/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
