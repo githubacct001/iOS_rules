@@ -1,61 +1,61 @@
 #----------杂
-DOMAIN, ad.yieldlab.net, REJECT
-DOMAIN, admobile.oss-cn-hangzhou.aliyuncs.com, REJECT
-DOMAIN, adservice.google.com, REJECT
-DOMAIN, couplestupidity.com, REJECT
-DOMAIN, ib.adnxs.com, REJECT
-DOMAIN, ms-ads-monitoring-events.presage.io, REJECT
-DOMAIN, pagead2.googlesyndication.com, REJECT
-DOMAIN, securepubads.g.doubleclick.net, REJECT
-DOMAIN-SUFFIX, adform.net, REJECT
-DOMAIN-SUFFIX, admobile.top, REJECT
-DOMAIN-SUFFIX, ads.justpremium.com, REJECT
-DOMAIN-SUFFIX, amazon-adsystem.com, REJECT
-DOMAIN-SUFFIX, os8.pw, REJECT
-DOMAIN-SUFFIX, smartadserver.com, REJECT
-DOMAIN-SUFFIX, teads.tv, REJECT
+DOMAIN, ad.yieldlab.net
+DOMAIN, admobile.oss-cn-hangzhou.aliyuncs.com
+DOMAIN, adservice.google.com
+DOMAIN, couplestupidity.com
+DOMAIN, ib.adnxs.com
+DOMAIN, ms-ads-monitoring-events.presage.io
+DOMAIN, pagead2.googlesyndication.com
+DOMAIN, securepubads.g.doubleclick.net
+DOMAIN-SUFFIX, adform.net
+DOMAIN-SUFFIX, admobile.top
+DOMAIN-SUFFIX, ads.justpremium.com
+DOMAIN-SUFFIX, amazon-adsystem.com
+DOMAIN-SUFFIX, os8.pw
+DOMAIN-SUFFIX, smartadserver.com
+DOMAIN-SUFFIX, teads.tv
 
 
 # - - - - - C - - - - - #
 # > cocomanhua去广告
 # @网址: www.cocomanhua.com
-DOMAIN, ot.myotomyarkab.com, REJECT // 去抓包检测
-#DOMAIN, xg.tjwmtrw.cn, REJECT
-#DOMAIN, xc.xiyqjea.cn, REJECT
-#DOMAIN, uc.sogo.shuangshiyihightgo.top, REJECT
-#DOMAIN-SUFFIX, sb4you1.com, REJECT
+DOMAIN, ot.myotomyarkab.com // 去抓包检测
+#DOMAIN, xg.tjwmtrw.cn
+#DOMAIN, xc.xiyqjea.cn
+#DOMAIN, uc.sogo.shuangshiyihightgo.top
+#DOMAIN-SUFFIX, sb4you1.com
 
 
 # - - - - - F - - - - - #
 # > 番号楼去广告
 # @网址: fanhaolou.com
-DOMAIN, pic.xjcsk.com, REJECT
-DOMAIN, ce.fisher56.com, REJECT
+DOMAIN, pic.xjcsk.com
+DOMAIN, ce.fisher56.com
 
 
 # - - - - - K - - - - - #
 # > 酷安去广告
-DOMAIN-SUFFIX, pglstatp-toutiao.com, REJECT
+DOMAIN-SUFFIX, pglstatp-toutiao.com
 
 
 # - - - - - Q - - - - - #
 # > 全民K歌去开屏广告
-DOMAIN, gdc.kg.qq.com, REJECT
+DOMAIN, gdc.kg.qq.com
 # > 奇漫屋底部广告
-DOMAIN, adurl.admh8.com, REJECT
+DOMAIN, adurl.admh8.com
 
 
 # - - - - - S - - - - - #
 # > Soul去广告
-IP-CIDR, 47.97.215.55/32, REJECT, no-resolve
-IP-CIDR, 121.199.12.210/32, REJECT, no-resolve
-IP-CIDR, 120.27.235.201/32, REJECT, no-resolve
-IP-CIDR, 121.199.39.101/32, REJECT, no-resolve
-IP-CIDR, 47.96.238.17/32, REJECT, no-resolve
-IP-CIDR, 47.99.42.29/32, REJECT, no-resolve
-IP-CIDR, 116.62.47.28/32, REJECT, no-resolve
-IP-CIDR, 121.199.1.71/32, REJECT, no-resolve
-IP-CIDR, 121.199.53.196/32, REJECT, no-resolve
+IP-CIDR, 47.97.215.55/32, no-resolve
+IP-CIDR, 121.199.12.210/32, no-resolve
+IP-CIDR, 120.27.235.201/32, no-resolve
+IP-CIDR, 121.199.39.101/32, no-resolve
+IP-CIDR, 47.96.238.17/32, no-resolve
+IP-CIDR, 47.99.42.29/32, no-resolve
+IP-CIDR, 116.62.47.28/32, no-resolve
+IP-CIDR, 121.199.1.71/32, no-resolve
+IP-CIDR, 121.199.53.196/32, no-resolve
 
 
 # - - - - - T - - - - - #
@@ -63,21 +63,9 @@ IP-CIDR, 121.199.53.196/32, REJECT, no-resolve
 
 # - - - - - W - - - - - #
 # > 微博国际版开屏广告
-DOMAIN-SUFFIX, gdt.qq.com, REJECT
+DOMAIN-SUFFIX, gdt.qq.com
 
 
 # - - - - - X - - - - - #
 # > 讯飞广告
-DOMAIN, a-qmad.qm989.com, REJECT
-
-
-# - - - - - Y - - - - - #
-# > 樱花动漫去广告
-DOMAIN, hnw.jhzpgw.com, REJECT
-
-
-# - - - - - Z - - - - - #
-# > 最右
-DOMAIN, adapi.izuiyou.com, REJECT
-# > 中国移动云盘广告
-DOMAIN, ad.mcloud.139.com, REJECT
+DOMAIN, a-qmad.qm989.com
