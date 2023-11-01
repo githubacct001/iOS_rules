@@ -1,0 +1,170 @@
+#!name = PluginForOwn
+#!desc = 最后更新时间 2023/11/01 18:20
+#!openurl = 
+#!author = lbqmy2022
+#!homepage = 
+#!icon = 
+
+
+
+[Rule]
+#----------杂
+DOMAIN, ad.yieldlab.net, REJECT
+DOMAIN, admobile.oss-cn-hangzhou.aliyuncs.com, REJECT
+DOMAIN, adservice.google.com, REJECT
+DOMAIN, couplestupidity.com, REJECT
+DOMAIN, ib.adnxs.com, REJECT
+DOMAIN, ms-ads-monitoring-events.presage.io, REJECT
+DOMAIN, pagead2.googlesyndication.com, REJECT
+DOMAIN, securepubads.g.doubleclick.net, REJECT
+DOMAIN-SUFFIX, adform.net, REJECT
+DOMAIN-SUFFIX, admobile.top, REJECT
+DOMAIN-SUFFIX, ads.justpremium.com, REJECT
+DOMAIN-SUFFIX, amazon-adsystem.com, REJECT
+DOMAIN-SUFFIX, os8.pw, REJECT
+DOMAIN-SUFFIX, smartadserver.com, REJECT
+DOMAIN-SUFFIX, teads.tv, REJECT
+# - - - - - C - - - - - #
+# > cocomanhua去广告
+# @网址: www.cocomanhua.com
+DOMAIN, ot.myotomyarkab.com, REJECT // 去抓包检测
+#DOMAIN, xg.tjwmtrw.cn, REJECT
+#DOMAIN, xc.xiyqjea.cn, REJECT
+#DOMAIN, uc.sogo.shuangshiyihightgo.top, REJECT
+#DOMAIN-SUFFIX, sb4you1.com, REJECT
+# - - - - - F - - - - - #
+# > 番号楼去广告
+# @网址: fanhaolou.com
+DOMAIN, pic.xjcsk.com, REJECT
+DOMAIN, ce.fisher56.com, REJECT
+# - - - - - K - - - - - #
+# > 酷安去广告
+DOMAIN-SUFFIX, pglstatp-toutiao.com, REJECT
+# - - - - - Q - - - - - #
+# > 全民K歌去开屏广告
+DOMAIN, gdc.kg.qq.com, REJECT
+# > 奇漫屋底部广告
+DOMAIN, adurl.admh8.com, REJECT
+# - - - - - S - - - - - #
+# > Soul去广告
+IP-CIDR, 47.97.215.55/32, REJECT
+IP-CIDR, 121.199.12.210/32, REJECT
+IP-CIDR, 120.27.235.201/32, REJECT
+IP-CIDR, 121.199.39.101/32, REJECT
+IP-CIDR, 47.96.238.17/32, REJECT
+IP-CIDR, 47.99.42.29/32, REJECT
+IP-CIDR, 116.62.47.28/32, REJECT
+IP-CIDR, 121.199.1.71/32, REJECT
+IP-CIDR, 121.199.53.196/32, REJECT
+# - - - - - T - - - - - #
+
+# - - - - - W - - - - - #
+# > 微博国际版开屏广告
+DOMAIN-SUFFIX, gdt.qq.com, REJECT
+# - - - - - X - - - - - #
+# > 讯飞广告
+DOMAIN, a-qmad.qm989.com, REJECT
+# - - - - - Y - - - - - #
+# > 樱花动漫去广告
+DOMAIN, hnw.jhzpgw.com, REJECT
+# - - - - - Z - - - - - #
+# > 最右
+DOMAIN, adapi.izuiyou.com, REJECT
+# > 中国移动云盘广告
+DOMAIN, ad.mcloud.139.com, REJECT
+
+
+
+[Rewrite]
+# - - - - - B - - - - - #
+# > 百度网盘个人页面去广告
+^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list.* reject
+# - - - - - D - - - - - #
+# > 得物开屏广告
+^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
+# - - - - - F - - - - - #
+# > 粉笔公考Banner广告
+^https://(tiku|keapi)\.fenbi\.com/(app/)?iphone/.*/(small_)?banners? reject-dict
+# - - - - - H - - - - - #
+# > 华住会开屏广告
+^https?:\/\/appapi\.huazhu\.com\:8443\/client\/app\/getAppStartPage reject
+# - - - - - J - - - - - #
+# > 京东开屏广告
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|uniformRecommend) reject
+# - - - - - N - - - - - #
+# > 农业银行广告图片
+^https:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/bdfb4 reject
+# - - - - - Q - - - - - #
+# > 七猫小说底部横幅广告
+^https:\/\/api-ks\.wtzw\.com\/api\/v(1|2)\/(float-adv|init-adv|reader-adv|bookshelf-adv|coopen-adv) reject
+# - - - - - S - - - - - #
+# > Soul数据上报
+^https?:\/\/data\-collector\.soulapp\.cn\/api\/data\/report reject
+# - - - - - T - - - - - #
+# > 淘宝开屏广告
+^https?:\/\/gw\.alicdn\.com\/imgextra\/i4\/.+?\.jpg_1200x1200q90\.jpg_\.webp$ reject
+# - - - - - W - - - - - #
+# > 微博广告
+^https:\/\/weibointl\.api\.weibo\.cn\/portal\.php.*ads&c=ad.* reject
+# > 微博开屏广告
+^https?:\/\/bootpreload\.uve\.weibo\.com\/v1\/ad reject
+# > 微博评论页广告
+^https?:\/\/api\.weibo\.cn\/2\/statuses\/extend reject
+# > 微博国际版首页时间线广告
+^https?:\/\/api\.weibo\.cn\/2\/ad url reject
+# > 网易大神去开屏广告
+^https:\/\/god\.gameyw\.netease\.com\/v1\/ad\/.* reject
+# - - - - - X - - - - - #
+# > 小米商城开屏广告
+^https?:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/skywheel\/mishop\/splash reject
+# - - - - - Y - - - - - #
+# > 易捷加油小程序底部横幅广告
+^https:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo url reject-dict
+# > 樱花动漫去广告
+^https?:\/\/m\.yhmxv\.com header-replace-regex User-Agent .* Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Safari/605.1.15
+# - - - - - Z - - - - - #
+# > 知乎去banner广告
+^https?:\/\/www\.zhihu\.com\/commercial_api\/banners_v3\/mobile_banner reject
+# > 知乎去热门推荐广告
+^https?:\/\/www\.zhihu\.com\/api\/v4\/hot_recommendation\?show_ad=true https://www.zhihu.com/api/v4/hot_recommendation?show_ad=false 302
+# > 知乎app文章底部广告
+^https?:\/\/www\.zhihu\.com\/api\/v4\/answers\/\d+\/recommendations\?omni=mix\&load_new_ad=2 reject
+# > 知乎盐选推荐广告
+^https?:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card reject
+# > 掌上生活去"我的"浮窗广告
+^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
+# > 掌上生活开屏广告
+^https?:\/\/az\dmbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject
+# > 中国银行缤纷生活
+^https?:\/\/mlife\.jf365\.boc\.cn\/AppPrj\/FirstPic reject
+# > 浙里办去开屏广告
+^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic reject
+# > 招商银行去开屏广告
+^https?:\/\/s3gw\.cmbimg\.com\/mbappinitads reject
+
+
+
+[Script]
+# - - - - - D - - - - - #
+# > 得物去用户信息页广告
+http-response ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-info script-path=/adblock/dw.js,requires-body=1,tag=得物去用户信息页广告
+# > 得物去探索页面广告
+http-response ^https://app\.dewu\.com/identify-discovery/v1/discovery/index script-path=/adblock/dw.js,requires-body=1,tag=得物去探索页面广告
+# - - - - - W - - - - - #
+# > 微博国际版"我的"页面去"会员中心"
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center script-path=/adblock/wbintl.js,requires-body=1,tag=微博国际版"我的"页面去"会员中心"
+# > 微博国际版feed页定制
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed\&a=trends script-path=/adblock/wbintl.js,requires-body=1,tag=微博国际版feed页定制
+# - - - - - X - - - - - #
+# > 小米有品开屏广告
+http-response ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig script-path=/adblock/youpin.js,requires-body=1,tag=小米有品开屏广告
+# - - - - - Y - - - - - #
+
+# - - - - - Z - - - - - #
+# > 知乎去相关推荐
+http-response ^https?:\/\/www\.zhihu\.com\/api\/v4\/(answers|questions)\/\d+\/related-readings script-path=/adblock/zhihu.js,requires-body=1,tag=知乎去相关推荐
+
+
+
+[MITM]
+hostname = api-ks.wtzw.com, api.m.jd.com, api.weibo.cn, api.zhihu.com, app.dewu.com, appapi.huazhu.com, az1mbasecc.bas.cmbchina.com, az2mbasecc.bas.cmbchina.com, bootpreload.uve.weibo.com, data-collector.soulapp.cn, god.gameyw.netease.com, gw.alicdn.com, intellicc.bas.cmbchina.com, keapi.fenbi.com, m.yhmxv.com, midc.cdn-static.abchina.com.cn, mlife.jf365.boc.cn, ocrifs.ejoy.sinopec.com, pan.baidu.com, portal.zjzwfw.gov.cn, s3gw.cmbimg.com, shop-api.retail.mi.com, shopapi.io.mi.com, tiku.fenbi.com, weibointl.api.weibo.cn, www.zhihu.com
