@@ -7,15 +7,20 @@
 
 
 
+[Rewrite]
+# - - - - - R - - - - - #
+# > 小星空解锁热门对象回复
+^https://slb\.orderorigin\.com\/stars-p\/v2\/explore\/msg\/msg-busy\?sender=.* reject
+
+
+
 [Script]
 # - - - - - B - - - - - #
 # > 白描黄金会员解锁（by LTribe）
 http-response ^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$ script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/vip/baimiao.js,requires-body=1,tag=白描黄金会员解锁
 # > 薄荷壁纸解锁VIP （by lbqmy2022）
 http-response ^https?:\/\/mars-prod\.whalean\.com\/hestia-service\/api\/wpUser\/getUserInfo script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/vip/whalean.js,requires-body=1,tag=薄荷壁纸解锁VIP
-# - - - - - R - - - - - #
-# > 小星空解锁热门对象回复
-^https://slb\.orderorigin\.com\/stars-p\/v2\/explore\/msg\/msg-busy\?sender=.* url reject
+
 
 
 [MITM]
