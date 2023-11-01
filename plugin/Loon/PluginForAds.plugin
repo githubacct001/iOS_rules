@@ -147,22 +147,22 @@ DOMAIN, ad.mcloud.139.com, REJECT
 [Script]
 # - - - - - D - - - - - #
 # > 得物去用户信息页广告
-http-response ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-info script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/dw.js,requires-body=1,tag=得物去用户信息页广告
+http-response ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-info script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/dw.js,requires-body=1,tag=得物去用户信息页广告
 # > 得物去探索页面广告
-http-response ^https://app\.dewu\.com/identify-discovery/v1/discovery/index script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/dw.js,requires-body=1,tag=得物去探索页面广告
+http-response ^https://app\.dewu\.com/identify-discovery/v1/discovery/index script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/dw.js,requires-body=1,tag=得物去探索页面广告
 # - - - - - W - - - - - #
 # > 微博国际版"我的"页面去"会员中心"
-http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/wbintl.js,requires-body=1,tag=微博国际版"我的"页面去"会员中心"
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/wbintl.js,requires-body=1,tag=微博国际版"我的"页面去"会员中心"
 # > 微博国际版feed页定制
-http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed\&a=trends script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/wbintl.js,requires-body=1,tag=微博国际版feed页定制
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?ct=feed\&a=trends script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/wbintl.js,requires-body=1,tag=微博国际版feed页定制
 # - - - - - X - - - - - #
 # > 小米有品开屏广告
-http-response ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/youpin.js,requires-body=1,tag=小米有品开屏广告
+http-response ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/youpin.js,requires-body=1,tag=小米有品开屏广告
 # - - - - - Y - - - - - #
 
 # - - - - - Z - - - - - #
 # > 知乎去相关推荐
-http-response ^https?:\/\/www\.zhihu\.com\/api\/v4\/(answers|questions)\/\d+\/related-readings script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/Loon/zhihu.js,requires-body=1,tag=知乎去相关推荐
+http-response ^https?:\/\/www\.zhihu\.com\/api\/v4\/(answers|questions)\/\d+\/related-readings script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/adblock/zhihu.js,requires-body=1,tag=知乎去相关推荐
 
 
 
