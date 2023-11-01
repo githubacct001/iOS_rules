@@ -1,0 +1,119 @@
+#!name = PluginForOwn
+#!desc = 最后更新时间 2023/11/01 18:20
+#!openurl = 
+#!author = lbqmy2022
+#!homepage = 
+#!icon = 
+
+
+
+[Rule]
+#----------杂
+DOMAIN, ad.yieldlab.net, REJECT
+DOMAIN, admobile.oss-cn-hangzhou.aliyuncs.com, REJECT
+DOMAIN, adservice.google.com, REJECT
+DOMAIN, couplestupidity.com, REJECT
+DOMAIN, ib.adnxs.com, REJECT
+DOMAIN, ms-ads-monitoring-events.presage.io, REJECT
+DOMAIN, pagead2.googlesyndication.com, REJECT
+DOMAIN, securepubads.g.doubleclick.net, REJECT
+DOMAIN-SUFFIX, adform.net, REJECT
+DOMAIN-SUFFIX, admobile.top, REJECT
+DOMAIN-SUFFIX, ads.justpremium.com, REJECT
+DOMAIN-SUFFIX, amazon-adsystem.com, REJECT
+DOMAIN-SUFFIX, os8.pw, REJECT
+DOMAIN-SUFFIX, smartadserver.com, REJECT
+DOMAIN-SUFFIX, teads.tv, REJECT
+
+
+# - - - - - C - - - - - #
+# > cocomanhua去广告
+# @网址: www.cocomanhua.com
+DOMAIN, ot.myotomyarkab.com, REJECT // 去抓包检测
+#DOMAIN, xg.tjwmtrw.cn, REJECT
+#DOMAIN, xc.xiyqjea.cn, REJECT
+#DOMAIN, uc.sogo.shuangshiyihightgo.top, REJECT
+#DOMAIN-SUFFIX, sb4you1.com, REJECT
+
+
+# - - - - - F - - - - - #
+# > 番号楼去广告
+# @网址: fanhaolou.com
+DOMAIN, pic.xjcsk.com, REJECT
+DOMAIN, ce.fisher56.com, REJECT
+
+
+# - - - - - K - - - - - #
+# > 酷安去广告
+DOMAIN-SUFFIX, pglstatp-toutiao.com, REJECT
+
+
+# - - - - - Q - - - - - #
+# > 全民K歌去开屏广告
+DOMAIN, gdc.kg.qq.com, REJECT
+# > 奇漫屋底部广告
+DOMAIN, adurl.admh8.com, REJECT
+
+
+# - - - - - S - - - - - #
+# > Soul去广告
+IP-CIDR, 47.97.215.55/32, REJECT
+IP-CIDR, 121.199.12.210/32, REJECT
+IP-CIDR, 120.27.235.201/32, REJECT
+IP-CIDR, 121.199.39.101/32, REJECT
+IP-CIDR, 47.96.238.17/32, REJECT
+IP-CIDR, 47.99.42.29/32, REJECT
+IP-CIDR, 116.62.47.28/32, REJECT
+IP-CIDR, 121.199.1.71/32, REJECT
+IP-CIDR, 121.199.53.196/32, REJECT
+
+
+# - - - - - T - - - - - #
+
+
+# - - - - - W - - - - - #
+# > 微博国际版开屏广告
+DOMAIN-SUFFIX, gdt.qq.com, REJECT
+
+
+# - - - - - X - - - - - #
+# > 讯飞广告
+DOMAIN, a-qmad.qm989.com, REJECT
+
+
+# - - - - - Y - - - - - #
+# > 樱花动漫去广告
+DOMAIN, hnw.jhzpgw.com, REJECT
+
+
+# - - - - - Z - - - - - #
+# > 最右
+DOMAIN, adapi.izuiyou.com, REJECT
+# > 中国移动云盘广告
+DOMAIN, ad.mcloud.139.com, REJECT
+
+
+
+[Rewrite]
+# - - - - - B - - - - - #
+# > 百度网盘个人页面去广告
+^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list.* reject
+# - - - - - D - - - - - #
+# > 得物开屏广告
+^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
+
+
+
+
+
+[Script]
+# - - - - - D - - - - - #
+# > 得物去用户信息页广告
+http-response ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-info script-path=/adblock/dw.js,requires-body=1,tag=得物去用户信息页广告
+# > 得物去探索页面广告
+http-response ^https://app\.dewu\.com/identify-discovery/v1/discovery/index script-path=/adblock/dw.jsrequires-body=1,tag=得物去探索页面广告
+
+
+
+[MITM]
+hostname = api-ks.wtzw.com, api.m.jd.com, api.weibo.cn, api.zhihu.com, app.dewu.com, appapi.huazhu.com, az1mbasecc.bas.cmbchina.com, az2mbasecc.bas.cmbchina.com, bootpreload.uve.weibo.com, data-collector.soulapp.cn, god.gameyw.netease.com, gw.alicdn.com, intellicc.bas.cmbchina.com, keapi.fenbi.com, m.yhmxv.com, midc.cdn-static.abchina.com.cn, mlife.jf365.boc.cn, ocrifs.ejoy.sinopec.com, pan.baidu.com, portal.zjzwfw.gov.cn, s3gw.cmbimg.com, shop-api.retail.mi.com, shopapi.io.mi.com, tiku.fenbi.com, weibointl.api.weibo.cn, www.zhihu.com
