@@ -4,6 +4,6 @@
 
 
 [General]
-skip-proxy = nppbase.95516.com
+skip-proxy = %APPEND% nppbase.95516.com
 
 # > nppbase.95516.com：中国银行缤纷生活
