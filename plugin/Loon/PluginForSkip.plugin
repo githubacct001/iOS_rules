@@ -1,0 +1,9 @@
+#!name= PluginForSkip
+#!desc= 跳过部分应用的代理检测
+
+
+
+[General]
+skip-proxy = nppbase.95516.com
+
+# > nppbase.95516.com：中国银行缤纷生活
