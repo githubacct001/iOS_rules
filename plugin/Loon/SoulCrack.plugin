@@ -1,0 +1,13 @@
+#!name = SoulSuperVIPCrack
+#!desc = 最后更新时间 2023/11/03 13:12 脚本来源：@Hausd0rff
+#!openurl = https://github.com/githubacct001/iOS_rules/new/main/plugin/Loon/SoulCrack.plugin
+#!author = lbqmy2022
+#!homepage = https://github.com/githubacct001/iOS_rules
+#!icon = https://raw.githubusercontent.com/githubacct001/QuantumultX/blob/master/icon/soul.png
+
+[Script]
+http-response ^https?:\/\/.+(\/privilege\/supervip\/status|\/show\/superVIP\/detail|\/meet\/invisible\/saveByUserId|\/special\/concern\/setting|\/chat\/history\/setting|\/privilege\/bubble\/buy|\/soul-coin\/total|\/user\/queryInvisibleSetting|\/chat\/limitInfo) script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/SoulSuperVipCrack.js, requires-body=true, timeout=10, tag=Crack - SoulSuperVipCrack, img-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/soul.png
+
+
+[MITM]
+hostname = api-pay.soulapp.cn,api-user.soulapp.cn,api-chat.soulapp.cn,8.210.3.170,47.96.7.91,47.96.11.46,47.96.20.45,47.98.54.106,47.98.137.249,114.215.255.94,118.31.7.235,118.31.112.221,120.55.55.115,120.55.62.124,121.196.197.147,121.196.203.183
