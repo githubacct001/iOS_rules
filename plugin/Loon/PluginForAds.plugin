@@ -124,7 +124,7 @@ DOMAIN, ad.mcloud.139.com, REJECT
 ^https?:\/\/m\.yhmxv\.com header-replace-regex User-Agent .* Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Safari/605.1.15
 # - - - - - Z - - - - - #
 # > 知乎去banner广告
-^https?:\/\/www\.zhihu\.com\/commercial_api\/banners_v3\/mobile_banner reject
+^https?:\/\/(www|api)\.zhihu\.com\/commercial_api reject
 # > 知乎去热门推荐广告
 ^https?:\/\/www\.zhihu\.com\/api\/v4\/hot_recommendation\?show_ad=true https://www.zhihu.com/api/v4/hot_recommendation?show_ad=false 302
 # > 知乎app文章底部广告
