@@ -17,7 +17,7 @@
 
 [Script]
 # - - - - - B - - - - - #
-# > 白描黄金会员解锁 @LTribe）
+# > 白描黄金会员解锁 @LTribe
 http-response ^https?:\/\/baimiao\.uzero\.cn\/api\/v\d\.user\/appLaunchWithUser$ script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/vip/baimiao.js,requires-body=1,tag=白描黄金会员解锁
 # > 薄荷壁纸解锁VIP @lbqmy2022
 http-response ^https?:\/\/mars-prod\.whalean\.com\/hestia-service\/api\/wpUser\/getUserInfo script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/vip/whalean.js,requires-body=1,tag=薄荷壁纸解锁VIP
