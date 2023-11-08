@@ -1,9 +1,10 @@
 #!name = PluginForAds
-#!desc = 包含"rule_reject.conf" & "rewrite_qx_ads.conf"   最后更新时间 2023/11/01 18:20
+#!desc = 包含"rule_reject.conf" & "rewrite_qx_ads.conf"
 #!openurl = https://github.com/githubacct001/iOS_rules/blob/main/plugin/Loon/PluginForAds.plugin
 #!author = lbqmy2022
-#!homepage = 
+#!homepage = https://github.com/githubacct001/iOS_rules
 #!icon = 
+#!date = 2023/11/08 14:00
 
 
 
