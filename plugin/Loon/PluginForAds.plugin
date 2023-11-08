@@ -72,6 +72,9 @@ DOMAIN, hnw.jhzpgw.com, REJECT
 DOMAIN, adapi.izuiyou.com, REJECT
 # > 中国移动云盘广告
 DOMAIN, ad.mcloud.139.com, REJECT
+# > 字节跳动
+DOMAIN, asiad.byteactivity12.com, REJECT
+DOMAIN, asiad.byteactivity.com, REJECT
 
 
 
