@@ -1,23 +1,27 @@
 #!name = X-Search
 #!desc = 最后更新时间 2023/11/01 20:00 搜索增强工具
-#!openurl = 
+#!openurl = https://github.com/githubacct001/iOS_rules/blob/main/plugin/Loon/X-Search.plugin
 #!author = lbqmy2022
-#!homepage = 
+#!homepage = https://github.com/githubacct001/iOS_rules
 #!icon = 
+#!date = 2024/03/14 09:30
 
 
 
 [Rewrite]
 #>>>>>>>>>>>Safari搜索强化
 # > 知乎搜索
-^https?://www.google.cn/search\?q=zh\+ https://www.zhihu.com/search?q= 302
+^https?://www.google.c(n|om)\/search\?q=zh\+ https://www.zhihu.com/search?q= 302
 # > Twitter搜索
-^https?://www.google.cn/search\?q=twi\+ Twitter://search?query= 302
+^https?://www.google.c(n|om)\/search\?q=twi\+ Twitter://search?query= 302
 # > 百度搜索
-^https?://www.google.c(n|om)/search\?q=bd\+ https://www.baidu.com/s?wd= 302
+^https?://www.google.c(n|om)\/search\?q=bd\+ https://www.baidu.com/s?wd= 302
 # > 微博搜索
-^https?://www.google.cn/search\?q=wb\+ weibointernational://search?q= 302
+^https?://www.google.c(n|om)\/search\?q=wb\+ https://m.weibo.cn/search?containerid=100103type=1&q= 302
 # > Bilibili搜索
-^https?://www.google.cn/search\?q=bili\+ bilibili://search?keyword= 302
+^https?://www.google.c(n|om)\/search\?q=bili\+ https://search.bilibili.com/all?keyword= 302
 # > YouTube搜索
-^https?://www.google.cn/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
+^https?://www.google.c(n|om)\/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
+
+[MITM]
+hostname = www.google.cn, www.google.com
