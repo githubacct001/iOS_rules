@@ -27,4 +27,4 @@ http-response ^https?:\/\/.*-slidebox-ios-prod\.cloudfunctions\.net\/api_v1 scri
 
 
 [MITM]
-hostname = baimiao.uzero.cn, mars-prod.whalean.com, slb.orderorigin.com, *-slidebox-ios-prod.cloudfunctions.net
+hostname = %APPEND% baimiao.uzero.cn, mars-prod.whalean.com, slb.orderorigin.com, *-slidebox-ios-prod.cloudfunctions.net
