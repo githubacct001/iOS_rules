@@ -24,4 +24,4 @@
 ^https?://www.google.c(n|om)\/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
 
 [MITM]
-hostname = www.google.cn, www.google.com
+hostname = %APPEND% www.google.cn, www.google.com
