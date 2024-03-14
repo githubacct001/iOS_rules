@@ -4,7 +4,7 @@
 #!author = lbqmy2022
 #!homepage = https://github.com/githubacct001/iOS_rules
 #!icon = 
-#!date = 2023/11/08 14:00
+#!date = 2024/03/14 10:00
 
 
 
@@ -25,6 +25,16 @@ DOMAIN-SUFFIX, amazon-adsystem.com, REJECT
 DOMAIN-SUFFIX, os8.pw, REJECT
 DOMAIN-SUFFIX, smartadserver.com, REJECT
 DOMAIN-SUFFIX, teads.tv, REJECT
+DOMAIN-SUFFIX, google-analytics.com, REJECT
+DOMAIN-SUFFIX, clientservices.googleapis.com, REJECT
+DOMAIN-SUFFIX, magsrv.com, REJECT
+DOMAIN-SUFFIX, mnaspm.com, REJECT
+DOMAIN-SUFFIX, bugly.qq.com, REJECT
+
+
+# - - - - - A - - - - - #
+# > Apple广告服务
+DOMAIN, api-adservices.apple.com, REJECT
 
 
 # - - - - - C - - - - - #
@@ -57,6 +67,7 @@ DOMAIN-SUFFIX, pglstatp-toutiao.com, REJECT
 # - - - - - Q - - - - - #
 # > 全民K歌去开屏广告
 DOMAIN, gdc.kg.qq.com, REJECT
+
 # > 奇漫屋底部广告
 DOMAIN, adurl.admh8.com, REJECT
 
@@ -79,8 +90,13 @@ IP-CIDR, 121.199.53.196/32, REJECT
 
 # - - - - - W - - - - - #
 # > 微博国际版开屏广告
-DOMAIN-SUFFIX, gdt.qq.com, REJECT
+#DOMAIN-SUFFIX, gdt.qq.com, REJECT
 
+# > 微信
+DOMAIN-SUFFIX, 910weixin.com, REJECT
+DOMAIN-SUFFIX, as.weixin.qq.com, REJECT
+DOMAIN-SUFFIX, ad.weixin.qq.com, REJECT
+DOMAIN-SUFFIX, dns.weixin.qq.com.cn, REJECT
 
 # - - - - - X - - - - - #
 # > 讯飞广告
@@ -98,12 +114,17 @@ DOMAIN, adapi.izuiyou.com, REJECT
 # > 中国移动云盘广告
 DOMAIN, ad.mcloud.139.com, REJECT
 # > 字节跳动
-host, asiad.byteactivity12.com, reject
-host, asiad.byteactivity.com, reject
+DOMAIN, asiad.byteactivity12.com, REJECT
+DOMAIN, asiad.byteactivity.com, REJECT
+# > 中国联通去广告
+DOMAIN, m1.ad.10010.com, REJECT
 
 
 
 [Rewrite]
+# - - - - - A - - - - - #
+# > 阿里巴巴开屏广告
+^https:\/\/gw\.alicdn\.com\/imgextra\/i4\/.*1080-2340\.png url reject-dict
 # - - - - - B - - - - - #
 # > 百度网盘个人页面去广告
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list.* reject
@@ -119,9 +140,6 @@ host, asiad.byteactivity.com, reject
 # - - - - - J - - - - - #
 # > 京东开屏广告
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|uniformRecommend) reject
-# - - - - - N - - - - - #
-# > 农业银行广告图片
-^https:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/bdfb4 reject
 # - - - - - Q - - - - - #
 # > 七猫小说底部横幅广告
 ^https:\/\/api-ks\.wtzw\.com\/api\/v(1|2)\/(float-adv|init-adv|reader-adv|bookshelf-adv|coopen-adv) reject
@@ -160,15 +178,17 @@ host, asiad.byteactivity.com, reject
 # > 知乎盐选推荐广告
 ^https?:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card reject
 # > 掌上生活去"我的"浮窗广告
-^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
+^https?:\/\/intellicc\.b\Ss\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
 # > 掌上生活开屏广告
-^https?:\/\/az\dmbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject
+^https?:\/\/(az\dmbasecc|mbasecc)\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject
 # > 中国银行缤纷生活
 ^https?:\/\/mlife\.jf365\.boc\.cn\/AppPrj\/FirstPic reject
 # > 浙里办去开屏广告
 ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic reject
 # > 招商银行去开屏广告
 ^https?:\/\/s3gw\.cmbimg\.com\/mbappinitads reject
+# > 中国移动去广告
+^https:\/\/res\.app\.coc\.10086\.cn\/qwhdcdn_cmcc-cs_cn\/prd-mgcenter reject
 
 
 
@@ -195,4 +215,4 @@ http-response ^https?:\/\/www\.zhihu\.com\/api\/v4\/(answers|questions)\/\d+\/re
 
 
 [MITM]
-hostname = api-ks.wtzw.com, api.m.jd.com, api.weibo.cn, api.zhihu.com, app.dewu.com, appapi.huazhu.com, az1mbasecc.bas.cmbchina.com, az2mbasecc.bas.cmbchina.com, bootpreload.uve.weibo.com, data-collector.soulapp.cn, god.gameyw.netease.com, gw.alicdn.com, intellicc.bas.cmbchina.com, keapi.fenbi.com, m.yhmxv.com, midc.cdn-static.abchina.com.cn, mlife.jf365.boc.cn, ocrifs.ejoy.sinopec.com, pan.baidu.com, portal.zjzwfw.gov.cn, s3gw.cmbimg.com, shop-api.retail.mi.com, shopapi.io.mi.com, tiku.fenbi.com, weibointl.api.weibo.cn, www.zhihu.com
+hostname = api-ks.wtzw.com, api.m.jd.com, api.weibo.cn, api.zhihu.com, app.dewu.com, appapi.huazhu.com, az1mbasecc.bas.cmbchina.com, az2mbasecc.bas.cmbchina.com, mbasecc.bas.cmbchina.com, bootpreload.uve.weibo.com, data-collector.soulapp.cn, god.gameyw.netease.com, gw.alicdn.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, keapi.fenbi.com, m.yhmxv.com, mlife.jf365.boc.cn, ocrifs.ejoy.sinopec.com, pan.baidu.com, portal.zjzwfw.gov.cn, s3gw.cmbimg.com, shop-api.retail.mi.com, shopapi.io.mi.com, tiku.fenbi.com, weibointl.api.weibo.cn, www.zhihu.com, res.app.coc.10086.cn, gw.alicdn.com
