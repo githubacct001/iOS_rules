@@ -18,10 +18,14 @@
 ^https?://www.google.c(n|om)\/search\?q=bd\+ https://www.baidu.com/s?wd= 302
 # > 微博搜索
 ^https?://www.google.c(n|om)\/search\?q=wb\+ https://m.weibo.cn/search?containerid=100103type=1&q= 302
+# > 微博搜索 移动端
+^https?://www.google.c(n|om)\/search\?q=wbm\+ weibointernational://search?q= 302
 # > Bilibili搜索
 ^https?://www.google.c(n|om)\/search\?q=bili\+ https://search.bilibili.com/all?keyword= 302
+# > Bilibili搜索 移动端
+^https?://www.google.c(n|om)\/search\?q=bilim\+ bilibili://search?keyword= 302
 # > YouTube搜索
 ^https?://www.google.c(n|om)\/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
 
 [MITM]
-hostname = %APPEND% www.google.cn, www.google.com
+hostname = %APPEND% www.google.cn
