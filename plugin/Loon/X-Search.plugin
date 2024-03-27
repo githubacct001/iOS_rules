@@ -4,7 +4,7 @@
 #!author = lbqmy2022
 #!homepage = https://github.com/githubacct001/iOS_rules
 #!icon = 
-#!date = 2024/03/14 09:30
+#!date = 2024/03/27 14:35
 
 
 
@@ -28,4 +28,4 @@
 ^https?://www.google.c(n|om)\/search\?q=ytb\+ https://www.youtube.com/results?search_query= 302
 
 [MITM]
-hostname = %APPEND% www.google.cn
+hostname = %APPEND% www.google.cn, www.google.com
