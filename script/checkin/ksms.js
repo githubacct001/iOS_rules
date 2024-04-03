@@ -6,7 +6,18 @@
 #!icon = https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
 #!date = 2024/04/03 13:50
 
+[Script]
+# 定时脚本
+cron "0 8 * * *" script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=签到 - 科丝美诗
+# 获取Cookie
+http-response ^https?:\/\/h5\.youzan\.com\/wscump\/checkin\/get_activity_by_yzuid_v2\.json script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=科丝美诗获取Cookie
+
+[MITM]
+hostname = h5.youzan.com
+
 */
+
+
 
 const $ = API("科丝美诗小程序", true);
 
