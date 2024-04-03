@@ -19,7 +19,7 @@ hostname = h5.youzan.com
 
 
 
-const $ = API("科丝美诗小程序", true);
+const $ = API("科丝美诗小程序", false);
 
 // 尝试获取参数
 try {
