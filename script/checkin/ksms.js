@@ -10,7 +10,7 @@
 # 定时脚本
 cron "0 8 * * *" script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=签到 - 科丝美诗, img-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
 # 获取Cookie
-http-response ^https?:\/\/h5\.youzan\.com\/wscump\/checkin\/get_activity_by_yzuid_v2\.json script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=科丝美诗获取Cookieimg-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
+http-response ^https?:\/\/h5\.youzan\.com\/wscump\/checkin\/get_activity_by_yzuid_v2\.json script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=科丝美诗获取Cookie, img-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
 
 [MITM]
 hostname = h5.youzan.com
