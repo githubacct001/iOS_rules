@@ -94,7 +94,7 @@ async function checkIn() {
         };
 
         console.log(notifyContent);
-        $.notify($.name, "", notifyContent);
+        return notifyContent;
     } catch (error) {
         $.log(`签到失败：${error}`);
     }
@@ -121,7 +121,7 @@ async function getPoints() {
         const points = jsonData.data.member.stats.points;
 	var notifyContent = `账号当前积分：${points}`;
         console.log(notifyContent);
-	$.notify($.name, "", notifyContent);
+        return notifyContent;
     } catch (error) {
         console.log(`获取积分数量失败：${error}`);
         return null;
@@ -130,9 +130,12 @@ async function getPoints() {
 
 // 执行签到函数
 !(async () => {
-    await checkIn();
-    await getPoints();
-})().then(() => $.done());
+    const checkInMsg = await checkIn();
+    const pointsMsg = await getPoints();
+    const finalMsg = `${checkInMsg}\n--------\n${pointsMsg}`;
+    $.notify($.name, "", finalMsg);
+    $.done();
+})();
 
 
 
