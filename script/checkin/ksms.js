@@ -25,7 +25,10 @@ const $ = API("科丝美诗小程序", false);
 try {
     // 在匹配到链接时获取 access_token 和 sid，并写入持久化数据
     var url = $request.url;
-    console.log(`科丝美诗小程序：获取Cookie开始\n----------`)
+    console.log(`科丝美诗小程序：获取Cookie开始`)
+
+    console.log(`----------`)
+	
     var params = url.match(/(?:\?|&)checkinId=(\d+)(?:&|$)/);
     var checkinId = params[1];
     console.log(`匹配到checkinId`)
@@ -45,6 +48,8 @@ try {
     var headers = $request.headers;
     var extraData = headers['extra-data'];
     console.log(`匹配到extraData`)
+
+    console.log(`----------`)
 
     // 将获取到的参数保存到 Loon 数据持久化中
     $.write(checkinId, "checkinId");
