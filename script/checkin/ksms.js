@@ -119,7 +119,7 @@ async function getPoints() {
 
         const jsonData = JSON.parse(response.body);
         const points = jsonData.data.member.stats.points;
-	var notifyContent = `账号当前积分：${notifyContent}`;
+	var notifyContent = `账号当前积分：${points}`;
         console.log(notifyContent);
 	$.notify($.name, "", notifyContent);
     } catch (error) {
