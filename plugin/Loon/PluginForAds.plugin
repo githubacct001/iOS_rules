@@ -8,6 +8,25 @@
 
 
 
+[Rule]
+# > Soul去广告
+IP-CIDR,47.97.215.55/32,REJECT,no-resolve
+IP-CIDR,121.199.12.210/32,REJECT,no-resolve
+IP-CIDR,120.27.235.201/32,REJECT,no-resolve
+IP-CIDR,121.199.39.101/32,REJECT,no-resolve
+IP-CIDR,47.96.238.17/32,REJECT,no-resolve
+IP-CIDR,47.99.42.29/32,REJECT,no-resolve
+IP-CIDR,116.62.47.28/32,REJECT,no-resolve
+IP-CIDR,121.199.1.71/32,REJECT,no-resolve
+IP-CIDR,121.199.53.196/32,REJECT,no-resolve
+
+# > SoulIP定位
+IP-CIDR,47.243.147.125/32,DIRECT
+IP-CIDR,47.75.72.47/32,DIRECT
+IP-CIDR,8.210.3.170/32,DIRECT
+
+
+
 [Rewrite]
 # - - - - - A - - - - - #
 # > 阿里巴巴开屏广告
