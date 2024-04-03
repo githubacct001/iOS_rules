@@ -1,10 +1,10 @@
 /*
 
 #!name = 科丝美诗小程序签到
-#!desc = 兼容QX & Loon & Surge
+#!desc = 脚本支持获取Cookie，兼容QX & Loon & Surge
 #!author = lbqmy2022
 #!icon = https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
-#!date = 2023/11/08 20:44
+#!date = 2024/04/03 13:50
 
 */
 
