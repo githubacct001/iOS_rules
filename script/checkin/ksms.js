@@ -100,9 +100,38 @@ async function checkIn() {
     }
 }
 
+// 获取积分数量
+async function getPoints() {
+    try {
+        // 从持久化数据中读取参数
+        var app_id = $.read("app_id");
+        var kdt_id = $.read("kdt_id");
+        var access_token = $.read("access_token");
+        var extraData = $.read("extraData");
+
+        const url = `https://h5.youzan.com/wscuser/membercenter/init-data.json?app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
+        const headers = {
+            'extra-data': `${extraData}`
+        };
+
+        // 发起GET请求
+        const response = await $.http.get({ url, headers });
+
+        const jsonData = JSON.parse(response.body);
+        const points = jsonData.data.member.stats.points;
+	var notifyContent = `账号当前积分：${notifyContent}`;
+        console.log(notifyContent);
+	$.notify($.name, "", notifyContent);
+    } catch (error) {
+        console.log(`获取积分数量失败：${error}`);
+        return null;
+    }
+}
+
 // 执行签到函数
 !(async () => {
     await checkIn();
+    await getPoints();
 })().then(() => $.done());
 
 
