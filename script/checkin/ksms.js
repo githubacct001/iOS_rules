@@ -25,20 +25,26 @@ const $ = API("科丝美诗小程序", false);
 try {
     // 在匹配到链接时获取 access_token 和 sid，并写入持久化数据
     var url = $request.url;
+    console.log(`科丝美诗小程序：获取Cookie开始\n----------`)
     var params = url.match(/(?:\?|&)checkinId=(\d+)(?:&|$)/);
     var checkinId = params[1];
+    console.log(`匹配到checkinId`)
 
     params = url.match(/(?:\?|&)app_id=([^&]+)(?:&|$)/);
     var app_id = params[1];
+    console.log(`匹配到app_id`)
 
     params = url.match(/(?:\?|&)kdt_id=([^&]+)(?:&|$)/);
     var kdt_id = params[1];
+    console.log(`匹配到kdt_id`)
 
     params = url.match(/(?:\?|&)access_token=([^&]+)(?:&|$)/);
     var access_token = params[1];
+    console.log(`匹配到access_token`)
 
     var headers = $request.headers;
     var extraData = headers['extra-data'];
+    console.log(`匹配到extraData`)
 
     // 将获取到的参数保存到 Loon 数据持久化中
     $.write(checkinId, "checkinId");
@@ -47,8 +53,8 @@ try {
     $.write(access_token, "access_token");
     $.write(extraData, "extraData");
 
-    $.notify($.name, "", `🎉 Cookie获取成功`);
-    $.log(`🎉 Cookie获取成功`);
+    $.notify($.name, "", `🎉 Cookie写入成功`);
+    console.log(`🎉 Cookie写入成功`);
     $.done();
 } catch (e) {
 	$.log(e)
