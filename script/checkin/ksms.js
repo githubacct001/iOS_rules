@@ -82,7 +82,7 @@ async function checkIn() {
             var notifyContent = jsonData.msg;
         };
 
-        $.log(notifyContent);
+        console.log(notifyContent);
         $.notify($.name, "", notifyContent);
     } catch (error) {
         $.log(`签到失败：${error}`);
