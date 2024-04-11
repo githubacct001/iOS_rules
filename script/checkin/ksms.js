@@ -32,6 +32,17 @@ function writeData(key, value) {
     }
 }
 
+// 适配函数
+function readData(key) {
+    if ($.env.isQX) {
+        return $prefs.valueForKey(key);
+    } else if ($.env.isLoon || $.env.isSurge) {
+        return $persistentStore.read(key);
+    } else {
+        console.log("Unsupported runtime environment!");
+    }
+}
+
 // 尝试获取参数
 try {
     // 在匹配到链接时获取 access_token 和 sid，并写入持久化数据
@@ -80,11 +91,11 @@ try {
 async function checkIn() {
     try {
         // 从持久化数据中读取参数
-        var checkinId = $.read("checkinId");
-        var app_id = $.read("app_id");
-        var kdt_id = $.read("kdt_id");
-        var access_token = $.read("access_token");
-        var extraData = $.read("extraData");
+        var checkinId = readData("checkinId");
+        var app_id = readData("app_id");
+        var kdt_id = readData("kdt_id");
+        var access_token = readData("access_token");
+        var extraData = readData("extraData");
 
         const url = `https://h5.youzan.com/wscump/checkin/checkinV2.json?checkinId=${checkinId}&app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
@@ -115,10 +126,10 @@ async function checkIn() {
 async function getPoints() {
     try {
         // 从持久化数据中读取参数
-        var app_id = $.read("app_id");
-        var kdt_id = $.read("kdt_id");
-        var access_token = $.read("access_token");
-        var extraData = $.read("extraData");
+        var app_id = readData("app_id");
+        var kdt_id = readData("kdt_id");
+        var access_token = readData("access_token");
+        var extraData = readData("extraData");
 
         const url = `https://h5.youzan.com/wscuser/membercenter/init-data.json?app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
@@ -147,6 +158,7 @@ async function getPoints() {
     $.notify($.name, "", finalMsg);
     $.done();
 })();
+
 
 
 
