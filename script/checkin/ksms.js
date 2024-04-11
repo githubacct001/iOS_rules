@@ -21,6 +21,17 @@ hostname = h5.youzan.com
 
 const $ = API("科丝美诗小程序", false);
 
+// 适配函数
+function writeData(key, value) {
+    if ($.env.isQX) {
+        $prefs.setValueForKey(value, key);
+    } else if ($.env.isLoon || $.env.isSurge) {
+        $persistentStore.write(value, key);
+    } else {
+        console.log("Unsupported runtime environment!");
+    }
+}
+
 // 尝试获取参数
 try {
     // 在匹配到链接时获取 access_token 和 sid，并写入持久化数据
@@ -28,7 +39,7 @@ try {
     console.log(`科丝美诗小程序：获取Cookie开始`)
 
     console.log(`----------`)
-	
+    
     var params = url.match(/(?:\?|&)checkinId=(\d+)(?:&|$)/);
     var checkinId = params[1];
     console.log(`匹配到checkinId`)
@@ -51,18 +62,18 @@ try {
 
     console.log(`----------`)
 
-    // 将获取到的参数保存到 Loon 数据持久化中
-    $.write(checkinId, "checkinId");
-    $.write(app_id, "app_id");
-    $.write(kdt_id, "kdt_id");
-    $.write(access_token, "access_token");
-    $.write(extraData, "extraData");
+    // 将获取到的参数保存到持久化数据中
+    writeData("checkinId", checkinId);
+    writeData("app_id", app_id);
+    writeData("kdt_id", kdt_id);
+    writeData("access_token", access_token);
+    writeData("extraData", extraData);
 
     $.notify($.name, "", `🎉 Cookie写入成功`);
     console.log(`🎉 Cookie写入成功`);
     $.done();
 } catch (e) {
-	$.log(e)
+    $.log(e)
 }
 
 // 签到
@@ -119,7 +130,7 @@ async function getPoints() {
 
         const jsonData = JSON.parse(response.body);
         const points = jsonData.data.member.stats.points;
-	var notifyContent = `账号当前积分：${points}`;
+        var notifyContent = `账号当前积分：${points}`;
         console.log(notifyContent);
         return notifyContent;
     } catch (error) {
@@ -136,6 +147,7 @@ async function getPoints() {
     $.notify($.name, "", finalMsg);
     $.done();
 })();
+
 
 
 
