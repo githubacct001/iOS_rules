@@ -77,7 +77,8 @@ async function checkIn() {
 
         const url = `https://h5.youzan.com/wscump/checkin/checkinV2.json?checkinId=${checkinId}&app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
-            'extra-data': `${extraData}`
+            'extra-data': `${extraData}`,
+	    'user-agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.48(0x1800302d) NetType/4G Language/zh_CN`
         };
 
         // 发起POST请求
@@ -111,7 +112,8 @@ async function getPoints() {
 
         const url = `https://h5.youzan.com/wscuser/membercenter/init-data.json?app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
-            'extra-data': `${extraData}`
+            'extra-data': `${extraData}`,
+	    'user-agent': `Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.48(0x1800302d) NetType/4G Language/zh_CN`
         };
 
         // 发起GET请求
