@@ -19,83 +19,82 @@ hostname = h5.youzan.com
 
 
 
-const $ = API("科丝美诗小程序", true);
+/*
 
-// 适配函数
-function writeData(key, value) {
-    if ($.env.isQX) {
-        $prefs.setValueForKey(value, key);
-    } else if ($.env.isLoon || $.env.isSurge) {
-        $persistentStore.write(value, key);
-    } else {
-        console.log("Unsupported runtime environment!");
-    }
-}
+#!name = 科丝美诗小程序签到
+#!desc = 脚本支持获取Cookie，兼容QX & Loon & Surge
+#!author = lbqmy2022
+#!icon = https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
+#!date = 2024/04/03 13:50
 
-// 适配函数
-function readData(key) {
-    if ($.env.isQX) {
-        return $prefs.valueForKey(key);
-    } else if ($.env.isLoon || $.env.isSurge) {
-        return $persistentStore.read(key);
-    } else {
-        console.log("Unsupported runtime environment!");
-    }
-}
+[Script]
+# 定时脚本
+cron "0 8 * * *" script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=签到 - 科丝美诗, img-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
+# 获取Cookie
+http-response ^https?:\/\/h5\.youzan\.com\/wscump\/checkin\/get_activity_by_yzuid_v2\.json script-path=https://raw.githubusercontent.com/githubacct001/iOS_rules/main/script/checkin/ksms.js, timeout=300, tag=科丝美诗获取Cookie, img-url=https://raw.githubusercontent.com/githubacct001/QuantumultX/master/icon/ksms.png
+
+[MITM]
+hostname = h5.youzan.com
+
+*/
+
+
+
+const $ = API("科丝美诗小程序", false);
 
 // 尝试获取参数
 try {
     // 在匹配到链接时获取 access_token 和 sid，并写入持久化数据
     var url = $request.url;
-    console.log(`科丝美诗小程序：获取Cookie开始`);
+    console.log(`科丝美诗小程序：获取Cookie开始`)
 
-    console.log(`----------`);
-
+    console.log(`----------`)
+	
     var params = url.match(/(?:\?|&)checkinId=(\d+)(?:&|$)/);
     var checkinId = params[1];
-    console.log(`匹配到checkinId`);
+    console.log(`匹配到checkinId`)
 
     params = url.match(/(?:\?|&)app_id=([^&]+)(?:&|$)/);
     var app_id = params[1];
-    console.log(`匹配到app_id`);
+    console.log(`匹配到app_id`)
 
     params = url.match(/(?:\?|&)kdt_id=([^&]+)(?:&|$)/);
     var kdt_id = params[1];
-    console.log(`匹配到kdt_id`);
+    console.log(`匹配到kdt_id`)
 
     params = url.match(/(?:\?|&)access_token=([^&]+)(?:&|$)/);
     var access_token = params[1];
-    console.log(`匹配到access_token`);
+    console.log(`匹配到access_token`)
 
     var headers = $request.headers;
     var extraData = headers['extra-data'];
-    console.log(`匹配到extraData`);
+    console.log(`匹配到extraData`)
 
-    console.log(`----------`);
+    console.log(`----------`)
 
-    // 将获取到的参数保存到持久化数据中
-    writeData("checkinId", checkinId);
-    writeData("app_id", app_id);
-    writeData("kdt_id", kdt_id);
-    writeData("access_token", access_token);
-    writeData("extraData", extraData);
+    // 将获取到的参数保存到 Loon 数据持久化中
+    $.write(checkinId, "checkinId");
+    $.write(app_id, "app_id");
+    $.write(kdt_id, "kdt_id");
+    $.write(access_token, "access_token");
+    $.write(extraData, "extraData");
 
     $.notify($.name, "", `🎉 Cookie写入成功`);
     console.log(`🎉 Cookie写入成功`);
     $.done();
 } catch (e) {
-    $.log(e);
+	$.log(e)
 }
 
 // 签到
 async function checkIn() {
     try {
         // 从持久化数据中读取参数
-        var checkinId = readData("checkinId");
-        var app_id = readData("app_id");
-        var kdt_id = readData("kdt_id");
-        var access_token = readData("access_token");
-        var extraData = readData("extraData");
+        var checkinId = $.read("checkinId");
+        var app_id = $.read("app_id");
+        var kdt_id = $.read("kdt_id");
+        var access_token = $.read("access_token");
+        var extraData = $.read("extraData");
 
         const url = `https://h5.youzan.com/wscump/checkin/checkinV2.json?checkinId=${checkinId}&app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
@@ -126,10 +125,10 @@ async function checkIn() {
 async function getPoints() {
     try {
         // 从持久化数据中读取参数
-        var app_id = readData("app_id");
-        var kdt_id = readData("kdt_id");
-        var access_token = readData("access_token");
-        var extraData = readData("extraData");
+        var app_id = $.read("app_id");
+        var kdt_id = $.read("kdt_id");
+        var access_token = $.read("access_token");
+        var extraData = $.read("extraData");
 
         const url = `https://h5.youzan.com/wscuser/membercenter/init-data.json?app_id=${app_id}&kdt_id=${kdt_id}&access_token=${access_token}`;
         const headers = {
@@ -141,7 +140,7 @@ async function getPoints() {
 
         const jsonData = JSON.parse(response.body);
         const points = jsonData.data.member.stats.points;
-        var notifyContent = `账号当前积分：${points}`;
+	var notifyContent = `账号当前积分：${points}`;
         console.log(notifyContent);
         return notifyContent;
     } catch (error) {
@@ -158,7 +157,6 @@ async function getPoints() {
     $.notify($.name, "", finalMsg);
     $.done();
 })();
-
 
 
 
