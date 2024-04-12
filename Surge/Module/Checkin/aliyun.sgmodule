@@ -1,7 +1,7 @@
 #!name=阿里云盘签到
 #!desc=阿里云盘签到模块，签到脚本来自@Sliverkiss
 #!author=@lbqmy2022
-#!arguments=STATUS:#,CRON_EXP:0 7,11,17 * * *,SCRIPT_TIMEOUT:300
+#!arguments=STATUS:#,CRON_EXP:"0 7,11,17 * * *",SCRIPT_TIMEOUT:300
 #!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
 
 
