@@ -1,0 +1,13 @@
+#!name=阿里云盘签到
+#!desc=阿里云盘签到模块，签到脚本来自@Sliverkiss
+#!author=@lbqmy2022
+#!arguments=STATUS:#,CRON_EXP:0 7,11,17 * * *,SCRIPT_TIMEOUT:300
+#!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
+
+
+[Script]
+{{{STATUS}}}阿里云盘数据 = type=http-request,pattern=^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js,script-update-interval=0
+阿里云盘签到 = type=cron,cronexp={{{CRON_EX}}},script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}
+
+[MITM]
+hostname = %APPEND% auth.alipan.com, aliyundrive.alipan.com
