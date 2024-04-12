@@ -1,5 +1,5 @@
 #!name=蜜雪冰城签到
-#!desc=蜜雪冰城签到模块，签到脚本来自于@Sliverkiss，
+#!desc=蜜雪冰城签到模块，签到脚本来自@Sliverkiss，
 #!author=@lbqmy2022
 #!arguments=STATUS:#,CRON_EXP:0 8 * * *,SCRIPT_TIMEOUT:300
 #!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
