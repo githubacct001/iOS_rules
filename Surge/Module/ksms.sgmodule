@@ -1,7 +1,7 @@
 #!name=科丝美诗签到
 #!desc=科丝美诗签到模块，用来学习 Surge 写法，模板来自 @xream
 #!author=@lbqmy2022
-#!arguments=STATUS:,CRON_EXP:0 * * * *,SCRIPT_TIMEOUT:120
+#!arguments=STATUS:#,CRON_EXP:0 * * * *,SCRIPT_TIMEOUT:120
 #!arguments-desc=CRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
 
 [Script]
