@@ -7,7 +7,7 @@
 
 [Script]
 {{{STATUS}}}阿里云盘数据 = type=http-request,pattern=^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js,script-update-interval=0
-阿里云盘签到 = type=cron,cronexp={{{CRON_EX}}},script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}
+阿里云盘签到 = type=cron,cronexp={{{CRON_EX}}},script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}}}
 
 [MITM]
 hostname = %APPEND% auth.alipan.com, aliyundrive.alipan.com
