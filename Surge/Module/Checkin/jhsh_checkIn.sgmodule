@@ -1,0 +1,13 @@
+#!name=建行生活签到
+#!desc=建行生活签到模块，签到脚本来自@FoKit
+#!author=@lbqmy2022
+#!arguments=STATUS:#,CRON_EXP:0 * * * *,SCRIPT_TIMEOUT:120
+#!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
+
+
+[Script]
+{{{STATUS}}}建行数据 = type=http-request,pattern=^https:\/\/yunbusiness\.ccb\.com\/(clp_coupon|clp_service)\/txCtrl\?txcode=(A3341A038|autoLogin),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js
+建行生活 = type=cron,cronexp="{{{CRON_EXP}}}",timeout={{{SCRIPT_TIMEOUT}}},script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/jhsh_checkIn.js,script-update-interval=0
+
+[MITM]
+hostname = %APPEND% yunbusiness.ccb.com
