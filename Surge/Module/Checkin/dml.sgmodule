@@ -7,7 +7,7 @@
 
 [Script]
 {{{STATUS}}}达乐美披萨数据 = type=http-request,pattern=^https:\/\/game\.dominos\.com\.cn\/.+\/game\/gameDone,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js
-阿里云盘签到 = type=cron,cronexp={{{CRON_EXP}}},script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}}}
+达美乐披萨🍕 = type=cron,cronexp={{{CRON_EXP}}},script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}}}
 
 [MITM]
 hostname = %APPEND% game.dominos.com.cn
