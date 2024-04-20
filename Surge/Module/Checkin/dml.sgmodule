@@ -1,0 +1,13 @@
+#!name=达美乐披萨🍕
+#!desc=达美乐披萨游戏模块，签到脚本来自@Sliverkiss
+#!author=@lbqmy2022
+#!arguments=STATUS:#,CRON_EXP:"30 10 * * *",SCRIPT_TIMEOUT:300
+#!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每小时一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
+
+
+[Script]
+{{{STATUS}}}达乐美披萨数据 = type=http-request,pattern=^https:\/\/game\.dominos\.com\.cn\/.+\/game\/gameDone,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js
+阿里云盘签到 = type=cron,cronexp={{{CRON_EXP}}},script-path=https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js,script-update-interval=0,timeout={{{SCRIPT_TIMEOUT}}}
+
+[MITM]
+hostname = %APPEND% game.dominos.com.cn
