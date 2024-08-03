@@ -1,0 +1,15 @@
+#!name=腾讯视频签到
+#!desc=腾讯视频签到模块，签到脚本来自@WowYiJiu
+#!author=@lbqmy2022
+#!arguments=STATUS:#,CRON_EXP:"0 8 * * *",SCRIPT_TIMEOUT:300
+#!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每天8点运行一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
+
+
+[Script]
+{{{STATUS}}}tenvideo = type=http-request, pattern=https://vip.video.qq.com/rpc/trpc.new_task_system.task_system.TaskSystem/ReadTaskList?, script-path=https://raw.githubusercontent.com/WowYiJiu/Personal/main/Script/tenvideo.js, timeout=60
+{{{STATUS}}}tenvideo = type=http-request, pattern=https://pbaccess.video.qq.com/trpc.videosearch.hot_rank.HotRankServantHttp/HotRankHttp, script-path=https://raw.githubusercontent.com/WowYiJiu/Personal/main/Script/tenvideo.js, timeout=60
+{{{STATUS}}}tenvideo = type=http-request, pattern=https://pbaccess.video.qq.com/trpc.video_account_login.web_login_trpc.WebLoginTrpc/NewRefresh, script-path=https://raw.githubusercontent.com/WowYiJiu/Personal/main/Script/tenvideo.js, requires-body=true, max-size=-1, timeout=60
+腾讯视频 = type=cron, cronexp={{{CRON_EXP}}}, script-path=https://raw.githubusercontent.com/WowYiJiu/Personal/main/Script/tenvideo.js, timeout={{{SCRIPT_TIMEOUT}}}, wake-system=1
+
+[MITM]
+hostname = %APPEND% vip.video.qq.com, pbaccess.video.qq.com
