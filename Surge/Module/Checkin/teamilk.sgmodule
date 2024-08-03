@@ -1,0 +1,14 @@
+#!name=奶茶签到合集
+#!desc=奶茶签到模块，签到脚本来自@Sliverkiss
+#!author=@lbqmy2022
+#!arguments=STATUS:#,CRON_EXP:"0 8 * * *",SCRIPT_TIMEOUT:300
+#!arguments-desc=STATUS:\n用来开启和关闭获取Cookie脚本的参数\n留空关闭，任意字符开启\n\nCRON_EXP:\n定时的 cron 表达式\n默认为每天8点运行一次\n\nSCRIPT_TIMEOUT:\n脚本超时时间(单位: 秒)
+
+
+[Script]
+{{{STATUS}}}奶茶获取token = type=http-response, pattern=^https:\/\/(webapi|webapi2)\.qmai\.cn\/web\/seller\/(oauth\/flash-sale-login|account\/login-minp), script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60
+{{{STATUS}}}奶茶获取token = type=http-request, pattern=^https:\/\/(webapi|webapi2|qmwebapi)\.qmai\.cn\/web\/(catering\/integral|cmk-center)\/sign\/(signIn|takePartInSign), script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, requires-body=true, timeout=60
+奶茶签到 = type=cron, cronexp={{{CRON_EXP}}}, script-path=https://gist.githubusercontent.com/Sliverkiss/8b4f5487e0f28786c7dec9c7484dcd5e/raw/teaMilk.js, timeout={{{SCRIPT_TIMEOUT}}}, wake-system=1
+
+[MITM]
+hostname = %APPEND% webapi2.qmai.cn, webapi.qmai.cn, qmwebapi.qmai.cn
